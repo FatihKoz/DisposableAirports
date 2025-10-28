@@ -43,6 +43,7 @@ class DA_AirportServices
     {
         set_time_limit(210); // Increase time limit for possible long process
 
+        $records_count = count($airports);
         $updated_count = 0;
         $created_count = 0;
         $skipped_count = 0;
@@ -99,7 +100,7 @@ class DA_AirportServices
 
         Log::notice('Disposable Airports | Airport data update completed. Updated: ' . $updated_count . ', Created: ' . $created_count . ', Skipped: ' . $skipped_count);
 
-        return ['updated' => $updated_count, 'created' => $created_count, 'skipped' => $skipped_count, 'processed' => ($updated_count + $created_count)];
+        return ['updated' => $updated_count, 'created' => $created_count, 'skipped' => $skipped_count, 'processed' => ($records_count)];
     }
 
     public function DownloadAirports()
