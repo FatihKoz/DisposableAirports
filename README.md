@@ -10,13 +10,13 @@ phpVMS v7 module for Automated Worldwide Airport Imports and Updates
 
 This module aims to create and update airports of a phpVMS v7 install via open source data with all possible features provided.
 
-* Uses MWGG Airports as the main source hosted by TurkSim _(so far it looks ok and enough for general VA usage)_
+* Uses MWGG Airports as the main source, which is hosted by TurkSim _(so far it looks ok and enough for general VA usage)_
 * Displays deleted airports and provides functions to restore
 * Uses CRON features to automatically check the source and update automatically
 
 ## Compatibility with other addons
 
-This addon is fully compatible with phpVMS v7 and it will work with any other addon, there are no custom blades for end users, signle admin page only.  
+This addon is fully compatible with phpVMS v7 and it will work with any other addon, there are no custom blades for end users, single admin page only.  
 
 ## Installation and Updates
 
@@ -61,7 +61,12 @@ As of date, there are no updates regarding airport sceneries (except not yet pub
 
 28.OCT.25
 
-* Initial Release  
 * Add setting for update only option (prevents new airport creation)
-* Fixed DispoBasic helper usage  
+* Fixed DispoBasic helper usage
+* Fixed some typo error in readme and flash messages 
+
+28.OCT.25
+
+* Initial Release  
+
 
