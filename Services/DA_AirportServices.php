@@ -71,21 +71,24 @@ class DA_AirportServices
                     $ap->save();
                     $updated_count++;
                 } else {
-                    // Create new
-                    Airport::create([
-                        'id'        => $data['icao'],
-                        'iata'      => $data['iata'] ?? null,
-                        'icao'      => $data['icao'],
-                        'name'      => $data['name'] ?? $data['icao'],
-                        'location'  => $data['city'] ?? null,
-                        'region'    => $data['state'] ?? null,
-                        'country'   => $data['country'],
-                        'timezone'  => $data['tz'] ?? null,
-                        'lat'       => $data['lat'],
-                        'lon'       => $data['lon'],
-                        'elevation' => $data['elevation'] ?? null,
-                    ]);
-                    $created_count++;
+                    // Check module setting for adding new airports
+                    if (DA_Setting('dairports.update_only', true) === false) {
+                        // Create new
+                        Airport::create([
+                            'id'        => $data['icao'],
+                            'iata'      => $data['iata'] ?? null,
+                            'icao'      => $data['icao'],
+                            'name'      => $data['name'] ?? $data['icao'],
+                            'location'  => $data['city'] ?? null,
+                            'region'    => $data['state'] ?? null,
+                            'country'   => $data['country'],
+                            'timezone'  => $data['tz'] ?? null,
+                            'lat'       => $data['lat'],
+                            'lon'       => $data['lon'],
+                            'elevation' => $data['elevation'] ?? null,
+                        ]);
+                        $created_count++;
+                    }
                 }
             } else {
                 Log::warning('Disposable Airports | Skipped record. Incomplete data for airport: ' . $icao, [$data]);

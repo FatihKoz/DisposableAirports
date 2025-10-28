@@ -9,7 +9,7 @@
             <td>
               @if($st->field_type === 'check')
                 <input type="hidden" name="{{ $st->id }}" value="false">
-                <input class="form-control" type="checkbox" name="{{ $st->id }}" value="true" @if($st->value === 'true') checked @endif>
+                <input class="form-control" type="checkbox" name="{{ $st->id }}" value="true" @if((filled($st->value) && $st->value === 'true') || (blank($st->value) && $st->default === 'true')) checked @endif>
               @elseif($st->field_type === 'select')
                 @php $values = explode(',', $st->options); @endphp
                 <select class="form-control" name="{{ $st->id }}">

@@ -62,3 +62,6 @@ As of date, there are no updates regarding airport sceneries (except not yet pub
 28.OCT.25
 
 * Initial Release  
+* Add setting for update only option (prevents new airport creation)
+* Fixed DispoBasic helper usage  
+

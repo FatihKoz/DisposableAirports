@@ -25,7 +25,7 @@ class Gen_Cron extends Listener
     public function cron_weekly()
     {
         // $this->DA_WriteToLog('Weekly test');
-        if (DB_Setting('dairports.cron', false)) {
+        if (DA_Setting('dairports.cron', false)) {
             $DA_AirportSVC = app(DA_AirportServices::class);
             $DA_AirportSVC->UpdateAirports();
         }

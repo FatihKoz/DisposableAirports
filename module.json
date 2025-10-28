@@ -2,7 +2,7 @@
     "name": "DisposableAirports",
     "alias": "disposableairports",
     "description": "phpVMS v7 module for Automated Airport Import and Updates",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "readme_url": "https://github.com/FatihKoz/DisposableAirports?tab=readme-ov-file#readme",
     "license_url": "https://github.com/FatihKoz/DisposableAirports?tab=License-1-ov-file#readme",
     "attribution": {
@@ -18,6 +18,8 @@
         "Modules\\DisposableAirports\\Providers\\DA_EventProvider"
     ],
     "aliases": {},
-    "files": [],
+    "files": [
+        "da_helpers.php"
+    ],
     "requires": []
 }
