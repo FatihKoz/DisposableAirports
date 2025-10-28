@@ -48,8 +48,8 @@ class DA_ServiceProvider extends ServiceProvider
             Route::match(['get', 'post'], 'dairports/update/{id}', 'DA_AirportController@update_airport')->name('update_airport');
             Route::match(['get', 'post'], 'disposableairports', 'DA_AirportController@index')->name('module_index');
             Route::match(['get', 'post'], 'dsettings_update', 'DA_AirportController@settings_update')->name('update_settings');
-            // Fix Uzbekistan ICAO codes
             Route::match(['get', 'post'], 'dairports/fix_uz', 'DA_AirportController@fix_uzbekistan_airports')->name('fix_uzbekistan');
+            Route::match(['get', 'post'], 'dairports/cleanup', 'DA_AirportController@cleanup_airports')->name('cleanup_airports');
         });
     }
 

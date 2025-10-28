@@ -27,5 +27,5 @@
     </table>
   </div>
 @else
-  <p>No deleted airports found.</p>
+  <p>No soft deleted airports found.</p>
 @endif

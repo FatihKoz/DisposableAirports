@@ -137,4 +137,14 @@ class DA_AirportController extends Controller
         flash()->success('Checked and Fixed Uzbekistan Airports (Airport, Flight, Pirep)... Codes Checked:' . $result['found'] . ', Updated:' . $result['updated'] . ', Skipped:' . $result['skipped'] . ' records.');
         return back();
     }
+
+    // Remove Not Used Airports
+    public function cleanup_airports()
+    {
+        $DA_AirportSVC = app(DA_AirportServices::class);
+        $result = $DA_AirportSVC->RemoveUnusedAirports();
+
+        flash()->success('Airport Cleanup Completed... Before:' . $result['total'] . ', Removed:' . $result['deleted'] . ', Remaining:' . $result['remaining'] . ' airport records.');
+        return back();
+    }
 }

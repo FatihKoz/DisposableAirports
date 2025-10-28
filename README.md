@@ -12,6 +12,7 @@ This module aims to create and update airports of a phpVMS v7 install via open s
 
 * Uses MWGG Airports as the main source, which is hosted by TurkSim _(so far it looks ok and enough for general VA usage)_
 * Displays deleted airports and provides functions to restore
+* Allows cleaning up airport records (by keeping only scheduled and flown airports, including alternates)
 * Uses CRON features to automatically check the source and update automatically
 
 ## Compatibility with other addons
@@ -57,16 +58,18 @@ Module checks all airport records, flights and pireps using old codes and update
 
 As of date, there are no updates regarding airport sceneries (except not yet published XP's default UTTT/UZTT change).  
 
+## Airport Cleanup
+
+Module will check your flights (schedule) and pilot repots (pireps), to build up a combined airports list including any alternate airports. And keep only them, hard delete the rest. Useful when lots of airports are imported (either by external csv files or with old flights, or with this module) but not needed anymore. Even though phpVMS v7 is capable of handling those excessive records, in some areas page loads can be affected and slight delays may happen (like when building airport dropdowns and while searching through records). This feature may help to reduce entries to required minimums and keep the system clean.  
+
 ## Release / Update Notes
 
 28.OCT.25
 
-* Add setting for update only option (prevents new airport creation)
-* Fixed DispoBasic helper usage
+* Added "Airport Cleanup" feature
 * Fixed some typo error in readme and flash messages 
-
-28.OCT.25
-
+* Fixed DispoBasic helper usage
+* Add setting for update only option (prevents new airport creation)
 * Initial Release  
 
 

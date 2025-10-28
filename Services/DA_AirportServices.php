@@ -200,4 +200,33 @@ class DA_AirportServices
 
         return ['found' => count($airports_array), 'updated' => $update_count, 'skipped' => $skip_count];
     }
+
+    public function RemoveUnusedAirports()
+    {
+        // Count total airports before cleanup
+        $airports_count = Airport::withTrashed()->count();
+
+        // Gather all used airports from Flights
+        $origins = Flight::withTrashed()->orderBy('dpt_airport_id')->distinct()->pluck('dpt_airport_id')->toArray();
+        $destinations = Flight::withTrashed()->orderBy('arr_airport_id')->distinct()->pluck('arr_airport_id')->toArray();
+        $alternates = Flight::withTrashed()->whereNotNull('alt_airport_id')->orderBy('alt_airport_id')->distinct()->pluck('alt_airport_id')->toArray();
+        // Combine all scheduled airports
+        $scheduled_airports = array_filter(array_unique(array_merge($origins, $destinations, $alternates)));
+
+        // Gather all used airports from PIREPs
+        $pirep_origins = Pirep::withTrashed()->orderBy('dpt_airport_id')->distinct()->pluck('dpt_airport_id')->toArray();
+        $pirep_destinations = Pirep::withTrashed()->orderBy('arr_airport_id')->distinct()->pluck('arr_airport_id')->toArray();
+        $pirep_alternates = Pirep::withTrashed()->whereNotNull('alt_airport_id')->orderBy('alt_airport_id')->distinct()->pluck('alt_airport_id')->toArray();
+        // Combine all flown airports
+        $flown_airports = array_filter(array_unique(array_merge($pirep_origins, $pirep_destinations, $pirep_alternates)));
+
+        // Combine scheduled and flown airports
+        $combined_airports = array_unique(array_merge($scheduled_airports, $flown_airports));
+
+        // Delete all airports not in the combined list
+        $airports_deleted = Airport::withTrashed()->whereNotIn('id', $combined_airports)->forceDelete();
+        Log::notice('Disposable Airports | Unused airport cleanup completed. Total deleted: ' . $airports_deleted);
+
+        return ['total' => $airports_count, 'deleted' => $airports_deleted, 'remaining' => ($airports_count - $airports_deleted)];
+    }
 }

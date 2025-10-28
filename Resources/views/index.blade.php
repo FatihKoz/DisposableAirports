@@ -26,15 +26,22 @@
       <div class="col-sm-4">
         <div class="card border-blue-bottom" style="padding:5px;">
           <br>
-          <a href="{{ route('DAirports.update_all') }}" class="btn btn-primary btn-sm" style="margin-top:5px;">Download & Update</a>
+          <a href="{{ route('DAirports.update_all') }}" class="btn btn-primary btn-sm" style="margin-top:5px;">
+            Download & Update @if (DA_Setting('dairports.update_only', true) === false) and Create @endif</a>
           <br><br>
           <span class="text-info">Download latest airport data and process (be patient)</span>
         </div>
         <div class="card border-blue-bottom" style="padding:5px;">
           <br>
-          <a href="{{ route('DAirports.fix_uzbekistan') }}" class="btn btn-primary btn-sm" style="margin-top:5px;">Fix Uzbekistan Codes</a>
+          <a href="{{ route('DAirports.fix_uzbekistan') }}" class="btn btn-warning btn-sm" style="margin-top:5px;">Fix Uzbekistan Codes</a>
           <br><br>
           <span class="text-info">Airports, Flights and Pireps will be checked & updated with new codes</span>
+        </div>
+        <div class="card border-blue-bottom" style="padding:5px;">
+          <br>
+          <a href="{{ route('DAirports.cleanup_airports') }}" class="btn btn-danger btn-sm" style="margin-top:5px;" onclick="return confirm('This will delete airport records !!!\n\n Are you sure ?')">Cleanup Airports</a>
+          <br><br>
+          <span class="text-info">Keep only scheduled and flown airports (including alternates)</span>
         </div>
         <div class="card border-blue-bottom" style="padding:5px;">
           <b>Module Settings</b>
