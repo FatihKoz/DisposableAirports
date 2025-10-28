@@ -21,7 +21,7 @@ This addon is fully compatible with phpVMS v7 and it will work with any other ad
 ## Installation and Updates
 
 * Manual Install : Upload contents of the package to your phpvms root `/modules` folder via ftp or your control panel's file manager
-* GitHub Clone : Clone/pull repository to your phpvms root `/modules/DisposableAirlines` folder
+* GitHub Clone : Clone/pull repository to your phpvms root `/modules/DisposableAirports` folder
 * PhpVms Module Installer : Go to admin -> addons/modules , click Add New , select downloaded file then click Add Module
 * Go to admin > addons/modules enable the module
 * Go to admin > dashboard (or /update) to trigger module migrations
