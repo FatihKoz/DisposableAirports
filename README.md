@@ -52,7 +52,8 @@ Check module admin page to view all features and possible settings module offers
 ## About Uzbekistan Codes
 
 To eliminate similarities between neighboring countries, Uzbekistan decided to change all of its ICAO codes, from `UT..` to `UZ..`  
-Module check all airport records, flights and pireps using old codes and updates them with corresponding new codes. For phpVMS this is not a big issue but for simulators, this update may take some time. Therefore I would kindly advise keeping old airports in your setups for some time (as Acars software may use sim provided icao codes and this can cause problems).  
+
+Module checks all airport records, flights and pireps using old codes and updates them with corresponding new codes. For phpVMS this is not a big issue but for simulators, this update may take some time. Therefore I would kindly advise keeping old airports in your setups for some time (as Acars software may use sim provided icao codes and this can cause problems).  
 
 As of date, there are no updates regarding airport sceneries (except not yet published XP's default UTTT/UZTT change).  
 
