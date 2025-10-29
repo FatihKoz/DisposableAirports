@@ -4,6 +4,7 @@ namespace Modules\DisposableAirports\Http\Controllers;
 
 use App\Contracts\Controller;
 use App\Models\Airport;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\DB;
@@ -32,9 +33,25 @@ class DA_AirportController extends Controller
 
         if ($ap) {
             $ap->restore();
-            flash()->success('Airport ' . $ap->icao . ' restored successfully.');
+            flash()->success('Airport ' . $icao . ' restored successfully.');
+            Log::debug('Disposable Airports | ' . $icao . ' restored by ' . Auth::user()->name_private);
         } else {
             flash()->error('Airport not found or not deleted.');
+        }
+
+        return back();
+    }
+
+    public function destroy($icao = null)
+    {
+        $ap = Airport::withTrashed()->where('id', $icao)->first();
+
+        if ($ap) {
+            $ap->forceDelete();
+            flash()->success('Airport ' . $icao . ' permanently deleted.');
+            Log::notice('Disposable Airports | ' . $icao . ' permanently deleted by ' . Auth::user()->name_private);
+        } else {
+            flash()->error('Airport not found.');
         }
 
         return back();

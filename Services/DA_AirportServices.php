@@ -5,6 +5,7 @@ namespace Modules\DisposableAirports\Services;
 use App\Models\Airport;
 use App\Models\Flight;
 use App\Models\Pirep;
+use App\Models\User;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
@@ -206,22 +207,28 @@ class DA_AirportServices
         // Count total airports before cleanup
         $airports_count = Airport::withTrashed()->count();
 
+        // Gather all pilot locations
+        $pilot_curr = User::whereNotNull('curr_airport_id')->orderBy('curr_airport_id')->groupBy('curr_airport_id')->pluck('curr_airport_id')->toArray();
+        $pilot_home = User::whereNotNull('home_airport_id')->orderBy('home_airport_id')->groupBy('home_airport_id')->pluck('home_airport_id')->toArray();
+        // Combine all pilot airports
+        $pilot_airports = array_filter(array_unique(array_merge($pilot_curr, $pilot_home)));
+
         // Gather all used airports from Flights
-        $origins = Flight::withTrashed()->orderBy('dpt_airport_id')->distinct()->pluck('dpt_airport_id')->toArray();
-        $destinations = Flight::withTrashed()->orderBy('arr_airport_id')->distinct()->pluck('arr_airport_id')->toArray();
-        $alternates = Flight::withTrashed()->whereNotNull('alt_airport_id')->orderBy('alt_airport_id')->distinct()->pluck('alt_airport_id')->toArray();
+        $origins = Flight::withTrashed()->orderBy('dpt_airport_id')->groupBy('dpt_airport_id')->pluck('dpt_airport_id')->toArray();
+        $destinations = Flight::withTrashed()->orderBy('arr_airport_id')->groupBy('arr_airport_id')->pluck('arr_airport_id')->toArray();
+        $alternates = Flight::withTrashed()->whereNotNull('alt_airport_id')->orderBy('alt_airport_id')->groupBy('alt_airport_id')->pluck('alt_airport_id')->toArray();
         // Combine all scheduled airports
         $scheduled_airports = array_filter(array_unique(array_merge($origins, $destinations, $alternates)));
 
         // Gather all used airports from PIREPs
-        $pirep_origins = Pirep::withTrashed()->orderBy('dpt_airport_id')->distinct()->pluck('dpt_airport_id')->toArray();
-        $pirep_destinations = Pirep::withTrashed()->orderBy('arr_airport_id')->distinct()->pluck('arr_airport_id')->toArray();
-        $pirep_alternates = Pirep::withTrashed()->whereNotNull('alt_airport_id')->orderBy('alt_airport_id')->distinct()->pluck('alt_airport_id')->toArray();
+        $pirep_origins = Pirep::withTrashed()->orderBy('dpt_airport_id')->groupBy('dpt_airport_id')->pluck('dpt_airport_id')->toArray();
+        $pirep_destinations = Pirep::withTrashed()->orderBy('arr_airport_id')->groupBy('arr_airport_id')->pluck('arr_airport_id')->toArray();
+        $pirep_alternates = Pirep::withTrashed()->whereNotNull('alt_airport_id')->orderBy('alt_airport_id')->groupBy('alt_airport_id')->pluck('alt_airport_id')->toArray();
         // Combine all flown airports
         $flown_airports = array_filter(array_unique(array_merge($pirep_origins, $pirep_destinations, $pirep_alternates)));
 
         // Combine scheduled and flown airports
-        $combined_airports = array_unique(array_merge($scheduled_airports, $flown_airports));
+        $combined_airports = array_unique(array_merge($pilot_airports, $scheduled_airports, $flown_airports));
 
         // Delete all airports not in the combined list
         $airports_deleted = Airport::withTrashed()->whereNotIn('id', $combined_airports)->forceDelete();

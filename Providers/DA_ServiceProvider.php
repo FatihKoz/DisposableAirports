@@ -43,6 +43,7 @@ class DA_ServiceProvider extends ServiceProvider
         ], function () {
             // Airports
             Route::match(['get', 'post'], 'dairports', 'DA_AirportController@index')->name('index');
+            Route::match(['get', 'post'], 'dairports/destroy/{id}', 'DA_AirportController@destroy')->name('destroy_airport');
             Route::match(['get', 'post'], 'dairports/restore/{id}', 'DA_AirportController@restore')->name('restore_airport');
             Route::match(['get', 'post'], 'dairports/update_all', 'DA_AirportController@update_all')->name('update_all');
             Route::match(['get', 'post'], 'dairports/update/{id}', 'DA_AirportController@update_airport')->name('update_airport');

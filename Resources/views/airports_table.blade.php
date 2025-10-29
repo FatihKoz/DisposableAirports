@@ -2,7 +2,7 @@
   <div style="margin-bottom: 5px;">
     <table class="table table-borderless table-hover small text-left" style="margin-bottom: 1px;">
       <tr class="bg-warning">
-        <th class="text-center" colspan="7"><b>Deleted Airports</b></th>
+        <th class="text-center" colspan="7"><b>Soft Deleted Airports</b></th>
       </tr>
       <tr>
         <th>ID</th>
@@ -21,7 +21,10 @@
           <td>{{ $airport->name }}</td>
           <td>{{ $airport->country }}</td>
           <td>{{ $airport->deleted_at->format('d.m.Y H:i') }}</td>
-          <td class="text-right"><a href="{{ route('DAirports.restore_airport', ['id' => $airport->id]) }}" class="btn btn-success btn-sm">Restore</a></td>
+          <td class="text-right">
+            <a href="{{ route('DAirports.restore_airport', ['id' => $airport->id]) }}" class="btn btn-success btn-sm mx-1">Restore</a>
+            <a href="{{ route('DAirports.destroy_airport', ['id' => $airport->id]) }}" class="btn btn-danger btn-sm mx-1" onclick="return confirm('This will delete the airport record !!!\n\n Are you sure ?')">Delete</a>
+          </td>
         </tr>
       @endforeach
     </table>

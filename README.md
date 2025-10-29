@@ -64,6 +64,11 @@ Module will check your flights (schedule) and pilot repots (pireps), to build up
 
 ## Release / Update Notes
 
+29.OCT.25
+
+* Added "Hard Delete" feature for soft deleted airport
+* Airport Cleanup now considers user/pilot locations along with schedule and reports.
+
 28.OCT.25
 
 * Added "Airport Cleanup" feature
