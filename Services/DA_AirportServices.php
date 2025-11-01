@@ -14,15 +14,15 @@ use Carbon\Carbon;
 class DA_AirportServices
 {
 
-    public function UpdateAirports()
+    public function UpdateAirports($file_name = null)
     {
-        $file_name = 'mwgg_airports.json';
+        $file_name = filled($file_name) ? $file_name : 'mwgg_airports.json';
 
         $check_file = Storage::disk('public')->exists($file_name);
         if ($check_file) {
             $file_modified = Storage::disk('public')->lastModified($file_name);
 
-            if (Carbon::createFromTimestamp($file_modified)->greaterThan(Carbon::now()->subDays(7))) {
+            if (Carbon::createFromTimestamp($file_modified)->greaterThan(Carbon::now()->subDays(3))) {
                 $file_contents = Storage::disk('public')->get($file_name);
                 $airports = json_decode($file_contents, true);
                 Log::notice('Disposable Airports | Airport data file found and up to date. Last modified: ' . Carbon::createFromTimestamp($file_modified)->format('d.m.Y H:i') . ', Airports fetched: ' . count($airports));
@@ -104,24 +104,25 @@ class DA_AirportServices
         return ['updated' => $updated_count, 'created' => $created_count, 'skipped' => $skipped_count, 'processed' => ($records_count)];
     }
 
-    public function DownloadAirports()
+    public function DownloadAirports($source_url = null, $source_file = null, $target_file = null)
     {
-        $source_url = 'https://turksim.net';
-        $file_name = 'mwgg_airports.json';
+        $source_url = filled($source_url) ? $source_url : 'https://raw.githubusercontent.com/mwgg/Airports/refs/heads/master';
+        $source_file = filled($source_file) ? $source_file : 'airports.json';
+        $target_file = filled($target_file) ? $target_file : 'mwgg_airports.json';
 
-        $response = retry(3, function () use ($source_url, $file_name) {
+        $response = retry(3, function () use ($source_url, $source_file) {
             return $resp = Http::withHeaders([
                 'Content-Type' => 'application/json',
             ])->withOptions([
                 'timeout'         => 120,
                 'connect_timeout' => 30,
                 'verify'          => false,
-            ])->acceptJson()->get($source_url . '/' . $file_name);
+            ])->acceptJson()->get($source_url . '/' . $source_file);
         }, 1000);
 
         // Log result and store file if successful
         if ($response->successful()) {
-            Storage::disk('public')->put($file_name, $response->body());
+            Storage::disk('public')->put($target_file, $response->body());
             $airports = $response->body();
             Log::notice('Disposable Airports | Connection initiated and airport data obtained from source.');
         } else {
