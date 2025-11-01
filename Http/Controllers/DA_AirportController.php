@@ -126,6 +126,7 @@ class DA_AirportController extends Controller
             "UT1Q" => "UZ1Q",
             "UTFA" => "UZFA",
             "UTFF" => "UZFF",
+            "UTKF" => "UZKF",
             "UTKK" => "UZKK",
             "UTFN" => "UZFN",
             "UTNM" => "UZNM",
