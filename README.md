@@ -59,39 +59,39 @@ Module checks all airport records, flights and pireps using old codes and update
 As of date, there are no updates regarding airport sceneries (except not yet published XP's default UTTT/UZTT change).  
 
 ```php
-    "UTSB" => "UZSB", // Bukhara
-    "UTSS" => "UZSS", // Samarkand
-    "UTTT" => "UZTT", // Tashkent
-    "UTST" => "UZST", // Termez
-    "UTNU" => "UZNU", // Urgench
-    "UTSA" => "UZSA", // Navoi
-    "UTNN" => "UZNN", // Nukus
-    "UTFA" => "UZFA", // Andijan
-    "UTFF" => "UZFF", // Fergana
-    "UTKF" => "UZFF", // Fergana, fix for duplicate code used in some sources
-    "UTSK" => "UZSK", // Karshi
-    "UTFN" => "UZFN", // Namangan
-    "UTTP" => "UZTP", // Tashkent - Vostochny
-    "UTTC" => "UZTC", // Chirchik Air Base
+"UTSB" => "UZSB", // Bukhara
+"UTSS" => "UZSS", // Samarkand
+"UTTT" => "UZTT", // Tashkent
+"UTST" => "UZST", // Termez
+"UTNU" => "UZNU", // Urgench
+"UTSA" => "UZSA", // Navoi
+"UTNN" => "UZNN", // Nukus
+"UTFA" => "UZFA", // Andijan
+"UTFF" => "UZFF", // Fergana
+"UTKF" => "UZFF", // Fergana, fix for duplicate code used in some sources
+"UTSK" => "UZSK", // Karshi
+"UTFN" => "UZFN", // Namangan
+"UTTP" => "UZTP", // Tashkent - Vostochny
+"UTTC" => "UZTC", // Chirchik Air Base
 
-    "UTSL" => "UZSL", // Karshi Air Base - NOT IN AIP
-    "UTNM" => "UZNM", // Muynak - NOT IN AIP
-    "UTSH" => "UZSH", // Shakhrisabz - NOT IN AIP
-    "UTSN" => "UZSN", // Navoi - Zarafshan - NOT IN AIP
-    "UTSR" => "UZSR", // Sary Asiya - NOT IN AIP
-    "UTSU" => "UZSU", // Uchkuduk - NOT IN AIP
-    "UTKK" => "UZKK", // Kokand - NOT IN AIP
-    "UTNT" => "UZNT", // Turtkul - NOT IN AIP
-    "UTSM" => "UZSM", // Tandy Bulak - NOT IN AIP
-    "UTTZ" => "UZTZ", // Zomin - NOT IN AIP
+"UTSL" => "UZSL", // Karshi Air Base - NOT IN AIP
+"UTNM" => "UZNM", // Muynak - NOT IN AIP
+"UTSH" => "UZSH", // Shakhrisabz - NOT IN AIP
+"UTSN" => "UZSN", // Navoi - Zarafshan - NOT IN AIP
+"UTSR" => "UZSR", // Sary Asiya - NOT IN AIP
+"UTSU" => "UZSU", // Uchkuduk - NOT IN AIP
+"UTKK" => "UZKK", // Kokand - NOT IN AIP
+"UTNT" => "UZNT", // Turtkul - NOT IN AIP
+"UTSM" => "UZSM", // Tandy Bulak - NOT IN AIP
+"UTTZ" => "UZTZ", // Zomin - NOT IN AIP
 
-    "UT1M" => "UZ1M", // Kakady - NOT IN AIP
-    "UT1N" => "UZ1N", // Karshi South - NOT IN AIP
-    "UT1O" => "UZ1O", // Beleuli North - NOT IN AIP
-    "UT1P" => "UZ1P", // Kagan South - NOT IN AIP
-    "UT1Q" => "UZ1Q", // Pakhtakor - NOT IN AIP
-    "UT73" => "UZ73", // Maymanak - NOT IN AIP
-    "UT77" => "UZ77", // Kungrad - NOT IN AIP
+"UT1M" => "UZ1M", // Kakady - NOT IN AIP
+"UT1N" => "UZ1N", // Karshi South - NOT IN AIP
+"UT1O" => "UZ1O", // Beleuli North - NOT IN AIP
+"UT1P" => "UZ1P", // Kagan South - NOT IN AIP
+"UT1Q" => "UZ1Q", // Pakhtakor - NOT IN AIP
+"UT73" => "UZ73", // Maymanak - NOT IN AIP
+"UT77" => "UZ77", // Kungrad - NOT IN AIP
 ```
 
 ## Airport Cleanup
