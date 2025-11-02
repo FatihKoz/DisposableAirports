@@ -130,23 +130,28 @@ class DA_AirportController extends Controller
             "UTNN" => "UZNN", // Nukus
             "UTFA" => "UZFA", // Andijan
             "UTFF" => "UZFF", // Fergana
+            "UTKF" => "UZFF", // Fergana, fix for duplicate code used in some sources
             "UTSK" => "UZSK", // Karshi
             "UTFN" => "UZFN", // Namangan
             "UTTP" => "UZTP", // Tashkent - Vostochny
             "UTTC" => "UZTC", // Chirchik Air Base
-            "UTKF" => "UZFF", // Fergana, fix for duplicate code used in some sources
             "UTSL" => "UZSL", // Karshi Air Base - NOT IN AIP
             "UTNM" => "UZNM", // Muynak - NOT IN AIP
             "UTSH" => "UZSH", // Shakhrisabz - NOT IN AIP
             "UTSN" => "UZSN", // Navoi - Zarafshan - NOT IN AIP
             "UTSR" => "UZSR", // Sary Asiya - NOT IN AIP
             "UTSU" => "UZSU", // Uchkuduk - NOT IN AIP
-            "UT1M" => "UZ1M",
-            "UT1P" => "UZ1P",
-            "UT1Q" => "UZ1Q",
-            "UTKK" => "UZKK",
-            "UTNT" => "UZNT",
-            "UTSM" => "UZSM",
+            "UTKK" => "UZKK", // Kokand - NOT IN AIP
+            "UTNT" => "UZNT", // Turtkul - NOT IN AIP
+            "UTSM" => "UZSM", // Tandy Bulak - NOT IN AIP
+            "UTTZ" => "UZTZ", // Zomin - NOT IN AIP
+            "UT1M" => "UZ1M", // Kakady - NOT IN AIP
+            "UT1N" => "UZ1N", // Karshi South - NOT IN AIP
+            "UT1O" => "UZ1O", // Beleuli North - NOT IN AIP
+            "UT1P" => "UZ1P", // Kagan South - NOT IN AIP
+            "UT1Q" => "UZ1Q", // Pakhtakor - NOT IN AIP
+            "UT73" => "UZ73", // Maymanak - NOT IN AIP
+            "UT77" => "UZ77", // Kungrad - NOT IN AIP
         ];
 
         $DA_AirportSVC = app(DA_AirportServices::class);
