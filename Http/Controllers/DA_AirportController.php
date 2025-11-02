@@ -121,32 +121,32 @@ class DA_AirportController extends Controller
     {
         // Old to New ICAO Codes for Uzbekistan
         $uzbekistan = [
+            "UTSB" => "UZSB", // Bukhara
+            "UTSS" => "UZSS", // Samarkand
+            "UTTT" => "UZTT", // Tashkent
+            "UTST" => "UZST", // Termez
+            "UTNU" => "UZNU", // Urgench
+            "UTSA" => "UZSA", // Navoi
+            "UTNN" => "UZNN", // Nukus
+            "UTFA" => "UZFA", // Andijan
+            "UTFF" => "UZFF", // Fergana
+            "UTSK" => "UZSK", // Karshi
+            "UTFN" => "UZFN", // Namangan
+            "UTTP" => "UZTP", // Tashkent - Vostochny
+            "UTTC" => "UZTC", // Chirchik Air Base
+            "UTKF" => "UZFF", // Fergana, fix for duplicate code used in some sources
+            "UTSL" => "UZSL", // Karshi Air Base - NOT IN AIP
+            "UTNM" => "UZNM", // Muynak - NOT IN AIP
+            "UTSH" => "UZSH", // Shakhrisabz - NOT IN AIP
+            "UTSN" => "UZSN", // Navoi - Zarafshan - NOT IN AIP
+            "UTSR" => "UZSR", // Sary Asiya - NOT IN AIP
+            "UTSU" => "UZSU", // Uchkuduk - NOT IN AIP
             "UT1M" => "UZ1M",
             "UT1P" => "UZ1P",
             "UT1Q" => "UZ1Q",
-            "UTFA" => "UZFA",
-            "UTFF" => "UZFF",
-            "UTKF" => "UZKF",
             "UTKK" => "UZKK",
-            "UTFN" => "UZFN",
-            "UTNM" => "UZNM",
-            "UTNN" => "UZNN",
             "UTNT" => "UZNT",
-            "UTNU" => "UZNU",
-            "UTSA" => "UZSA",
-            "UTSB" => "UZSB",
-            "UTSH" => "UZSH",
-            "UTSK" => "UZSK",
-            "UTSL" => "UZSL",
             "UTSM" => "UZSM",
-            "UTSN" => "UZSN",
-            "UTSR" => "UZSR",
-            "UTSS" => "UZSS",
-            "UTST" => "UZST",
-            "UTSU" => "UZSU",
-            "UTTC" => "UZTC",
-            "UTTP" => "UZTP",
-            "UTTT" => "UZTT",
         ];
 
         $DA_AirportSVC = app(DA_AirportServices::class);
