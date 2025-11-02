@@ -50,7 +50,7 @@ DAirports.module_index   /admin/disposableairports  // Provided for compatibilit
 
 Check module admin page to view all features and possible settings module offers. When enabled module can use cron to check the source and update airport records periodically.
 
-## About Uzbekistan Codes
+## About Uzbekistan Code Changes
 
 To eliminate similarities between neighboring countries, Uzbekistan decided to change all of its ICAO codes, from `UT..` to `UZ..`  
 
@@ -58,11 +58,51 @@ Module checks all airport records, flights and pireps using old codes and update
 
 As of date, there are no updates regarding airport sceneries (except not yet published XP's default UTTT/UZTT change).  
 
+```php
+    "UTSB" => "UZSB", // Bukhara
+    "UTSS" => "UZSS", // Samarkand
+    "UTTT" => "UZTT", // Tashkent
+    "UTST" => "UZST", // Termez
+    "UTNU" => "UZNU", // Urgench
+    "UTSA" => "UZSA", // Navoi
+    "UTNN" => "UZNN", // Nukus
+    "UTFA" => "UZFA", // Andijan
+    "UTFF" => "UZFF", // Fergana
+    "UTKF" => "UZFF", // Fergana, fix for duplicate code used in some sources
+    "UTSK" => "UZSK", // Karshi
+    "UTFN" => "UZFN", // Namangan
+    "UTTP" => "UZTP", // Tashkent - Vostochny
+    "UTTC" => "UZTC", // Chirchik Air Base
+
+    "UTSL" => "UZSL", // Karshi Air Base - NOT IN AIP
+    "UTNM" => "UZNM", // Muynak - NOT IN AIP
+    "UTSH" => "UZSH", // Shakhrisabz - NOT IN AIP
+    "UTSN" => "UZSN", // Navoi - Zarafshan - NOT IN AIP
+    "UTSR" => "UZSR", // Sary Asiya - NOT IN AIP
+    "UTSU" => "UZSU", // Uchkuduk - NOT IN AIP
+    "UTKK" => "UZKK", // Kokand - NOT IN AIP
+    "UTNT" => "UZNT", // Turtkul - NOT IN AIP
+    "UTSM" => "UZSM", // Tandy Bulak - NOT IN AIP
+    "UTTZ" => "UZTZ", // Zomin - NOT IN AIP
+
+    "UT1M" => "UZ1M", // Kakady - NOT IN AIP
+    "UT1N" => "UZ1N", // Karshi South - NOT IN AIP
+    "UT1O" => "UZ1O", // Beleuli North - NOT IN AIP
+    "UT1P" => "UZ1P", // Kagan South - NOT IN AIP
+    "UT1Q" => "UZ1Q", // Pakhtakor - NOT IN AIP
+    "UT73" => "UZ73", // Maymanak - NOT IN AIP
+    "UT77" => "UZ77", // Kungrad - NOT IN AIP
+```
+
 ## Airport Cleanup
 
 Module will check your flights (schedule) and pilot repots (pireps), to build up a combined airports list including any alternate airports. And keep only them, hard delete the rest. Useful when lots of airports are imported (either by external csv files or with old flights, or with this module) but not needed anymore. Even though phpVMS v7 is capable of handling those excessive records, in some areas page loads can be affected and slight delays may happen (like when building airport dropdowns and while searching through records). This feature may help to reduce entries to required minimums and keep the system clean.  
 
 ## Release / Update Notes
+
+02.NOV.25
+
+* Updated Uzbekistan ICAO codes, added new airports from various other sources
 
 01.NOV.25
 
