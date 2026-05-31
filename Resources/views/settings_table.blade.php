@@ -1,6 +1,6 @@
 @if($settings)
   <div style="margin-bottom: 5px;">
-    <form class="form" method="post" action="{{ route('DBasic.settings_update') }}">
+    <form class="form" method="post" action="{{ route('DAirports.update_settings') }}">
       @csrf
       <table class="table table-striped text-left" style="margin-bottom: 2px;">
         @foreach($settings->where('group', $group)->sortBy('order') as $st)

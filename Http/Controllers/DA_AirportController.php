@@ -68,7 +68,7 @@ class DA_AirportController extends Controller
     }
 
     // Module Settings
-    public function update_settings()
+    public function settings_update()
     {
         $formdata = Request::post();
         $section = null;
