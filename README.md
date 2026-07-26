@@ -6,7 +6,7 @@ phpVMS v7 module for Automated Worldwide Airport Imports and Updates
 > * Minimum required phpVMS v7 version is `phpVms 7.0.10`
 > * Minimum required PHP version is `8.1.x`
 
-This module aims to create and update airports of a phpVMS v7 install via open source data with all possible features provided.
+This module aims to create and/or update airports of a phpVMS v7 install via open source data with all possible features provided.
 
 * Uses MWGG Airports as the main source _(so far it looks ok and enough for general VA usage)_
 * Displays deleted airports and provides functions to restore
@@ -46,7 +46,7 @@ DAirports.module_index   /admin/disposableairports  // Provided for compatibilit
 
 ## Usage and Module Settings
 
-Check module admin page to view all features and possible settings module offers. When enabled module can use cron to check the source and update airport records periodically.
+Check module admin page to view all features and possible settings module offers. When enabled module can use cron to check the source and update airport records periodically.  
 
 ## About Uzbekistan Code Changes
 
@@ -100,7 +100,8 @@ Module will check your flights (schedule) and pilot repots (pireps), to build up
 
 26.JUL.26
 
-* Bugfix for settings
+* Bugfix for settings table
+* Bugfix for settings not being saved
 
 02.NOV.25
 
