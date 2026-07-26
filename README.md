@@ -3,10 +3,8 @@
 phpVMS v7 module for Automated Worldwide Airport Imports and Updates
 
 > [!IMPORTANT]
-> * Minimum required phpVMS v7 version is `phpVms 7.0.52-dev.g0421186c64` / 05.JAN.2025
-
-> [!TIP]
-> * Module supports **only** php8.1+ and laravel10
+> * Minimum required phpVMS v7 version is `phpVms 7.0.10`
+> * Minimum required PHP version is `8.1.x`
 
 This module aims to create and update airports of a phpVMS v7 install via open source data with all possible features provided.
 
@@ -99,6 +97,10 @@ As of date, there are no updates regarding airport sceneries (except not yet pub
 Module will check your flights (schedule) and pilot repots (pireps), to build up a combined airports list including any alternate airports. And keep only them, hard delete the rest. Useful when lots of airports are imported (either by external csv files or with old flights, or with this module) but not needed anymore. Even though phpVMS v7 is capable of handling those excessive records, in some areas page loads can be affected and slight delays may happen (like when building airport dropdowns and while searching through records). This feature may help to reduce entries to required minimums and keep the system clean.  
 
 ## Release / Update Notes
+
+26.JUL.26
+
+* Bugfix for settings
 
 02.NOV.25
 
