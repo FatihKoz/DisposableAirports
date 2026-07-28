@@ -98,6 +98,10 @@ Module will check your flights (schedule) and pilot repots (pireps), to build up
 
 ## Release / Update Notes
 
+28.JUL.26
+
+* Bugfix for route definitions (observed when other Dispo addons were active)
+
 26.JUL.26
 
 * Bugfix for settings table
